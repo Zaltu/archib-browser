@@ -1,0 +1,54 @@
+body {
+    background-image: url(img/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: 75px;
+}
+.displaywrapper{
+    display: flex;
+    padding-top: 7%;
+    padding-left: 7%;
+}
+.filterbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.filterlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, minmax(50px, 50px));
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+label {
+    text-align: right;
+    font-size: 25;
+    font-weight: bold;
+}
+input {
+    width: 175px;
+    height: 45px;
+    font-size: x-large;
+}
+select {
+    width: 175px;
+    height: 45px;
+    font-size: xx-large;
+    text-align: center;
+}
+#year {
+    max-width: 5rem;
+}
+#search {
+    height: 40px;
+    font-size: x-large;
+}
+#titlesearch {
+    height: 50px;
+    width: 1000px;
+    font-size: xx-large;
+    text-align: center;
+}

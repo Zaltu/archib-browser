@@ -1,54 +1,7 @@
 <html>
-    <style>
-        body {
-            background-image: url(bg.jpg);
-            background-repeat: no-repeat;
-            background-position: right;
-            background-position-y: 75px;
-        }
-        .displaywrapper{
-            display: flex;
-            padding-top: 7%;
-            padding-left: 7%;
-        }
-        .filterbox {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            
-        }
-        .filterlist {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(6, minmax(50px, 50px));
-            gap: 10px;
-            justify-items: center;
-            align-items: center;
-        }
-        label {
-            text-align: right;
-            font-size: 25;
-            font-weight: bold;
-        }
-        input {
-            width: 175px;
-            height: 45px;
-            font-size: x-large;
-        }
-        #year {
-            max-width: 5rem;
-        }
-        #search {
-            height: 40px;
-            font-size: x-large;
-        }
-        #titlesearch {
-            height: 50px;
-            width: 1000px;
-            font-size: xx-large;
-            text-align: center;
-        }
-    </style>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
     <body>
         <div class="displaywrapper">
             <div class="searchtextbox">
@@ -61,6 +14,16 @@
 
             <div class="filterbox">
                 <div class="filterlist">
+                    <label for="cat">Category</label>
+                    <select name="cat" id="cat">
+                        <option value="audio">Audio</option>
+                        <option value="book">Book</option>
+                        <option value="game" selected>Game</option>
+                        <option value="imageset">Image Set</option>
+                        <option value="software">Software</option>
+                        <option value="video">Video</option>
+                    </select>
+
                     <label for="dev">Developer</label>
                     <input type="text" id="dev" name="dev">
 
