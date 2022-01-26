@@ -1,0 +1,86 @@
+<html>
+    <style>
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-position-y: 75px;
+        }
+        .displaywrapper{
+            display: flex;
+            padding-top: 7%;
+            padding-left: 7%;
+        }
+        .filterbox {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 20rem;
+        }
+        .filterlist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(6, minmax(50px, 50px));
+            gap: 10px;
+            justify-items: center;
+            align-items: center;
+        }
+        label {
+            text-align: right;
+            font-size: 20;
+            font-weight: bold;
+        }
+        input {
+            width: 150px;
+            height: 50px;
+            font-size: large;
+        }
+        #year {
+            max-width: 5rem;
+        }
+        #search {
+            height: 40px;
+            font-size: x-large;
+        }
+        #titlesearch {
+            height: 50px;
+            width: 1000px;
+            font-size: xx-large;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div class="displaywrapper">
+            <div class="searchtextbox">
+                <input type="text" id="titlesearch" name="titlesearch">
+            </div>
+            
+            <div class="results">
+
+            </div>
+
+            <div class="filterbox">
+                <div class="filterlist">
+                    <label for="dev">Developer</label>
+                    <input type="text" id="dev" name="dev">
+
+                    <label for="publisher">Publisher</label>
+                    <input type="text" id="publisher" name="publisher">
+                    
+                    <label for="year">Release Year</label>
+                    <input type="number" id="year" name="year">
+                    
+                    <label for="drm">DRM</label>
+                    <input type="text" id="drm" name="drm">
+                    
+                    <label for="genre">Genre(s)</label>
+                    <input type="text" id="genre" name="genre">
+                    
+                    <label for="adult">Adult Only</label>
+                    <input type="checkbox" id="adult" name="adult" value="adult">        
+                </div>
+                <button type="button" id="search">Search</button>
+            </div>
+        </div>
+    </body>
+</html>
