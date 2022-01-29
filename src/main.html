@@ -2,8 +2,10 @@
     <head>
         <link rel="stylesheet" href="styles/skeleton.css">
         <link rel="stylesheet" href="styles/styles.css">
+        
     </head>
     <body>
+        <script src="script/search.js"></script>
         <div class="displaywrapper">
             <div class="searchtextbox">
                 <input type="text" id="titlesearch" name="titlesearch" autofocus>
@@ -14,19 +16,19 @@
             </div>
 
             <div class="filterbox">
-                <div class="filterlist">
+                <div class="filterlist" id="filterlist">
                     <label for="cat">Category</label>
                     <select name="cat" id="cat">
                         <option value="audio">Audio</option>
-                        <option value="book">Book</option>
-                        <option value="game" selected>Game</option>
+                        <option value="books">Book</option>
+                        <option value="games" selected>Game</option>
                         <option value="imageset">Image Set</option>
                         <option value="software">Software</option>
-                        <option value="video">Video</option>
+                        <option value="videos">Video</option>
                     </select>
 
                     <label for="dev">Developer</label>
-                    <input type="text" id="dev" name="dev">
+                    <input type="text" id="developer" name="dev">
 
                     <label for="publisher">Publisher</label>
                     <input type="text" id="publisher" name="publisher">
@@ -44,9 +46,9 @@
                     <input type="text" id="platformid" name="platformid">
                     
                     <label for="adult">Adult Only</label>
-                    <input type="checkbox" id="adult" name="adult" value="adult">        
+                    <input type="checkbox" id="adult" name="adult">
                 </div>
-                <button class="button-primary" id="search">Search</button>
+                <button class="button-primary" id="search" onclick="search()">Search</button>
             </div>
         </div>
     </body>
