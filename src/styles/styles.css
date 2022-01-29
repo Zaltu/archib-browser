@@ -1,5 +1,5 @@
 body {
-    background-image: url(img/bg.jpg);
+    background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-position: right;
     background-position-y: 75px;
@@ -29,6 +29,7 @@ label {
     font-weight: bold;
 }
 input {
+    border-radius: 5px;
     width: 175px;
     height: 45px;
     font-size: x-large;
@@ -40,7 +41,7 @@ select {
     text-align: center;
 }
 #year {
-    max-width: 5rem;
+    max-width: 3.5em;
 }
 #search {
     height: 45px;

@@ -1,11 +1,12 @@
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles/skeleton.css">
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
         <div class="displaywrapper">
             <div class="searchtextbox">
-                <input type="text" id="titlesearch" name="titlesearch">
+                <input type="text" id="titlesearch" name="titlesearch" autofocus>
             </div>
             
             <div class="results">
@@ -31,18 +32,21 @@
                     <input type="text" id="publisher" name="publisher">
                     
                     <label for="year">Release Year</label>
-                    <input type="number" id="year" name="year">
+                    <input placeholder="- - - -" type="number" id="year" name="year">
                     
                     <label for="drm">DRM</label>
                     <input type="text" id="drm" name="drm">
                     
                     <label for="genre">Genre(s)</label>
                     <input type="text" id="genre" name="genre">
+
+                    <label for="genre">Platform ID</label>
+                    <input type="text" id="platformid" name="platformid">
                     
                     <label for="adult">Adult Only</label>
                     <input type="checkbox" id="adult" name="adult" value="adult">        
                 </div>
-                <button type="button" id="search">Search</button>
+                <button class="button-primary" id="search">Search</button>
             </div>
         </div>
     </body>
