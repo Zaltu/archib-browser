@@ -1,20 +1,20 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="styles/skeleton.css">
         <link rel="stylesheet" href="styles/styles.css">
-        
     </head>
     <body>
         <script src="script/search.js"></script>
         <div class="displaywrapper">
-            <div class="searchtextbox">
-                <input type="text" id="titlesearch" name="titlesearch" autofocus>
-            </div>
-            
-            <div class="results">
+            <div>
+                <div class="searchtextbox">
+                    <input type="text" id="titlesearch" name="titlesearch" autofocus>
+                </div>
+                <div class="results" id="results">
 
+                </div>
             </div>
-
             <div class="filterbox">
                 <div class="filterlist" id="filterlist">
                     <label for="cat">Category</label>
@@ -32,19 +32,19 @@
 
                     <label for="publisher">Publisher</label>
                     <input type="text" id="publisher" name="publisher">
-                    
+
                     <label for="year">Release Year</label>
                     <input placeholder="- - - -" type="number" id="year" name="year">
-                    
+
                     <label for="drm">DRM</label>
                     <input type="text" id="drm" name="drm">
-                    
+
                     <label for="genre">Genre(s)</label>
                     <input type="text" id="genre" name="genre">
 
-                    <label for="genre">Platform ID</label>
+                    <label for="genre">ID</label>
                     <input type="text" id="platformid" name="platformid">
-                    
+
                     <label for="adult">Adult Only</label>
                     <input type="checkbox" id="adult" name="adult">
                 </div>

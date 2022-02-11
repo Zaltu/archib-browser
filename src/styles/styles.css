@@ -1,8 +1,12 @@
+html {
+    overflow: hidden;
+}
 body {
     background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-position: right;
     background-position-y: 75px;
+    overflow: hidden;
 }
 .displaywrapper{
     display: flex;
@@ -23,10 +27,46 @@ body {
     justify-items: center;
     align-items: center;
 }
-label {
-    text-align: right;
-    font-size: 25;
-    font-weight: bold;
+.results {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 10px;
+    max-height: 750px;
+    max-width: 1000px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+    border: 2px solid black;
+    overflow: visible;
+    max-height: max-content;
+    min-height: min-content;
+}
+.nameyear,
+.platpub {
+    display: flex;
+    gap: 1%;
+}
+.pubby {
+    display: flex;
+    gap: 3px;
+}
+.genres {
+    display: flex;
+    gap: 5px;
+}
+.genretag {
+    display: flex;
+    padding: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 2px solid rgba(255, 0, 0, 0.795);
+    border-radius: 10px;
+    background-color: rgba(253, 80, 80, 0.781);
+    font-family: "Arial";
 }
 input {
     border-radius: 5px;
@@ -52,4 +92,21 @@ select {
     width: 1000px;
     font-size: xx-large;
     text-align: center;
+}
+#cpath {
+    font-size: 12px;
+    color: rgb(114, 114, 114);
+}
+#cplatform {
+    font-weight: bold;
+}
+#cname {
+    font-size: xx-large;
+    font-weight: bold;
+}
+#cyear {
+    font-size: large;
+    font-weight: normal;
+    align-self: center;
+    color: rgba(128, 128, 128, 0.925);
 }
