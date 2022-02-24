@@ -32,7 +32,7 @@ function search() {
 }
 
 
-const URL = "http://localhost:5077/search"  // Temp
+const URL = "http://127.0.0.1:44361/search"  // Temp
 
 function _sendReq(data) {
     var xhr = new XMLHttpRequest()
