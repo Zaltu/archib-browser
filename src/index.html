@@ -6,6 +6,7 @@
     </head>
     <body>
         <script src="script/search.js"></script>
+        <script src="script/filtertemplates.js"></script>
         <div class="displaywrapper">
             <div>
                 <div class="searchtextbox">
@@ -16,7 +17,7 @@
                 </div>
             </div>
             <div class="filterbox">
-                <div class="filterlist" id="filterlist">
+                <div class="typeselect" id="typeselect">
                     <label for="cat">Category</label>
                     <select name="cat" id="cat">
                         <option value="audio">Audio</option>
@@ -26,30 +27,48 @@
                         <option value="software">Software</option>
                         <option value="videos">Video</option>
                     </select>
-
-                    <label for="platform">Platform</label>
-                    <input type="text" id="platform" name="platform">
-
-                    <label for="dev">Developer</label>
-                    <input type="text" id="developer" name="dev">
-
-                    <label for="publisher">Publisher</label>
-                    <input type="text" id="publisher" name="publisher">
-
-                    <label for="year">Release Year</label>
-                    <input placeholder="- - - -" type="number" id="year" name="year">
-
-                    <label for="drm">DRM</label>
-                    <input type="text" id="drm" name="drm">
-
-                    <label for="genre">Genre(s)</label>
-                    <input type="text" id="genre" name="genre">
-
-                    <label for="genre">ID</label>
-                    <input type="text" id="platformid" name="platformid">
-
-                    <label for="adult">Adult Only</label>
-                    <input type="checkbox" id="adult" name="adult">
+                </div>
+                <div class="filterwrap" id="filterwrap">
+                    <form onsubmit="search()" autocomplete="off" id="filters" class="filters">
+                        <div class="row">
+                            <div class="six columns">
+                                <label for="platform">Platform</label>
+                                <input type="text" id="platform" name="platform">
+                            </div>
+                            <div class="six columns">
+                                <label for="drm">DRM</label>
+                                <input type="text" id="drm" name="drm">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="six columns">
+                                <label for="developer">Developer</label>
+                                <input type="text" id="developer" name="developer">
+                            </div>
+                            <div class="six columns">
+                                <label for="publisher">Publisher</label>
+                                <input type="text" id="publisher" name="publisher">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="six columns">
+                                <label for="year">Release Year</label>
+                                <input placeholder="- - - -" type="number" id="year" name="year">
+                            </div>
+                            <div class="six columns">
+                                <label for="platformid">ID</label>
+                                <input type="text" id="platformid" name="platformid">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="genre">Genre(s)</label>
+                            <input type="text" id="genre" name="genre">
+                        </div>
+                        <div class="typeselect">
+                            <label for="adult">Adult Only</label>
+                            <input type="checkbox" id="adult" name="adult">
+                        </div>
+                    </form>
                 </div>
                 <button class="button-primary" id="search" onclick="search()">Search</button>
             </div>
