@@ -1,25 +1,20 @@
 
 function search() {
+    const formData = new FormData(document.querySelector('form'))
     var searchparams = {}
     searchparams["table"] = document.getElementById("cat").value
-    for (param of document.getElementById("filterlist").children){  // All filter entries ("form")
-        if (param.tagName == "LABEL" || param.tagName == "SELECT")  // Ignore labels and category selection
-            continue
-        if (param.id == "adult"){
-            if (param.checked)
-                searchparams["adult"] = param.checked
+    for (const pair of formData.entries()){  // All filter entries
+        if (pair[0] == "adult"){
+            if (pair[1]==true)
+                searchparams["adult"] = pair[1]
             continue
         }
-        if (param.type == "number" && param.value){
-            searchparams[param.id] = parseInt(param.value)
+        if (pair[0] == "genre" && pair[1]){
+            searchparams["genres"] = pair[1].replace(", ", ",").trim().split(",")  // monkaS
             continue
         }
-        if (param.id == "genre" && param.value){
-            searchparams["genres"] = param.value.replace(", ", ",").trim().split(",")  // monkaS
-            continue
-        }
-        if (param.value)
-            searchparams[param.id] = param.value
+        if (pair[1])
+            searchparams[pair[0]] = pair[1]
     }
     var textsearch = document.getElementById("titlesearch")
     if (textsearch.value && textsearch.value.trim())
@@ -43,7 +38,9 @@ function _sendReq(data) {
         console.log(xhr.status)
         if (xhr.readyState === 4) {
            //console.log(xhr.responseText);  // Can be huge, needs to be truncated
-           displaycards(JSON.parse(xhr.responseText))
+           const parsed = JSON.parse(xhr.responseText)
+           console.log(parsed.length)
+           displaycards(parsed)
     }};
     xhr.send(JSON.stringify(data))
 }
@@ -51,7 +48,6 @@ function _sendReq(data) {
 function displaycards(carddata) {
     //Wipe any existing results
     document.getElementById("results").innerHTML = ""
-    console.log(carddata.length)
 
     for (card of carddata){
         var gcard = `
