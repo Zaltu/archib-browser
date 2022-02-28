@@ -5,7 +5,7 @@ body {
     background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-position: right;
-    background-position-y: 75px;
+    background-position-y: 120px;
     overflow: hidden;
 }
 .displaywrapper{
@@ -19,13 +19,18 @@ body {
     gap: 10px;
     
 }
-.filterlist {
+.typeselect,
+.filterwrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(6, minmax(50px, 50px));
-    gap: 10px;
     justify-items: center;
     align-items: center;
+}
+.filters {
+    display: grid;
+    grid-column: span 2;
+    padding: 10px;
+    margin-bottom: 0%;
 }
 .results {
     display: flex;
@@ -109,4 +114,8 @@ select {
     font-weight: normal;
     align-self: center;
     color: rgba(128, 128, 128, 0.925);
+}
+#genre {
+    grid-column: span 2;
+    min-width: 370px;
 }
