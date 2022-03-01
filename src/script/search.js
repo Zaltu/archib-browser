@@ -49,7 +49,7 @@ function displaycards(carddata) {
     //Wipe any existing results
     document.getElementById("results").innerHTML = ""
 
-    for (card of carddata){
+    for (const card of carddata){
         var gcard = `
         <div class="card">
             <div class="nameyear">
