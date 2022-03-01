@@ -4,9 +4,10 @@ function search() {
     var searchparams = {}
     searchparams["table"] = document.getElementById("cat").value
     for (const pair of formData.entries()){  // All filter entries
-        if (pair[0] == "adult"){
-            if (pair[1]==true)
-                searchparams["adult"] = pair[1]
+        //console.log(pair[0], pair[1]) Temp
+        if (pair[0] == "safesearch"){
+            if (pair[1]=="on")
+                searchparams["adult"] = false
             continue
         }
         if (pair[0] == "genre" && pair[1]){
@@ -37,60 +38,23 @@ function _sendReq(data) {
     xhr.onreadystatechange = function () {  // Temp log return value to console
         console.log(xhr.status)
         if (xhr.readyState === 4) {
-           //console.log(xhr.responseText);  // Can be huge, needs to be truncated
-           const parsed = JSON.parse(xhr.responseText)
-           console.log(parsed.length)
-           displaycards(parsed)
+            //console.log(xhr.responseText);  // Can be huge, needs to be truncated
+            const parsed = JSON.parse(xhr.responseText)
+            if (parsed.length > 100){
+                console.log("Truncating " + parsed.length + " results to 100...")
+                parsed.length = 100
+            }
+            displaycards(parsed, data["table"])
     }};
     xhr.send(JSON.stringify(data))
 }
 
-function displaycards(carddata) {
+function displaycards(carddata, cardtype) {
     //Wipe any existing results
     document.getElementById("results").innerHTML = ""
 
     for (const card of carddata){
-        var gcard = `
-        <div class="card">
-            <div class="nameyear">
-                <label id="cname">${card.displayname}</label>
-                <label id="cyear">(${card.year})</label>
-            </div>
-            <div class="platpub">
-                <label id="cplatform">${card.platform}</label>
-                <div class="pubby">
-                    <label>Published by</label>
-                    <label id="publisher">${card.publisher}</label>
-                </div>
-            </div>
-            <div class="genres">
-        `
-        if ("genre" in card && card.genre){
-            for (genre of card.genre){
-                gcard += `<label class="genretag">${genre}</label>`
-            }
-        }
-        gcard += `
-            </div>
-            <a id="url" href="${card.url}" target="_blank">${card.url}</a>
-            <label id="cpath">${card.filepath}</label>
-        </div>
-        `
-        document.getElementById("results").innerHTML += gcard
+        var hcard = CARDMAP[cardtype](card)
+        document.getElementById("results").innerHTML += hcard
     }
 }
-
-
-/* Sample return list value
-{
-    "adult":false,
-    "displayname":"Valkyria Chronicles 4",
-    "filepath":"/media/archive/data/games/[SEGA]/[SEGA] Valkyria Chronicles 4.rar",
-    "genre":["FPS", "Historical"],
-    "platform":"PC",
-    "publisher":"SEGA",
-    "uid":000,
-    "url":"sega.com/valkyria-chronicles",
-    "year":2030
-}
-*/

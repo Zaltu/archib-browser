@@ -73,6 +73,10 @@ body {
     background-color: rgba(253, 80, 80, 0.781);
     font-family: "Arial";
 }
+.doublewidth {
+    grid-column: span 2;
+    min-width: 370px;
+}
 input {
     border-radius: 5px;
     width: 175px;
@@ -114,8 +118,4 @@ select {
     font-weight: normal;
     align-self: center;
     color: rgba(128, 128, 128, 0.925);
-}
-#genre {
-    grid-column: span 2;
-    min-width: 370px;
 }
