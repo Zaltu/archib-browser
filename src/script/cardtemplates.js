@@ -1,3 +1,17 @@
+const FILEBROWSER_PATH = "http://127.0.0.1:7850/files/"
+
+function convertPathToBrowser(path) {
+    if (path.includes("/media/archive/data/")) {
+        subpath = path.split("/media/archive/data/")[1]
+        return FILEBROWSER_PATH + subpath
+    }
+    else if (path.includes("/media/eyegis")) {
+        return "https://aigis.dev"
+    }
+    else {
+        return path
+    }
+}
 
 function audioCard(data) {
     var acard = `
@@ -11,7 +25,7 @@ function audioCard(data) {
         </div>
     </div>
     <a id="url" href="${data.url}" target="_blank">${data.url}</a>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return acard
@@ -39,7 +53,7 @@ function bookCard(data) {
     }
     bcard += `
     </div>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return bcard
@@ -69,7 +83,7 @@ function gameCard(data) {
     gcard += `
     </div>
     <a id="url" href="${data.url}" target="_blank">${data.url}</a>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return gcard
@@ -97,7 +111,7 @@ function imagesetCard(data) {
     }
     icard += `
     </div>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return icard
@@ -127,7 +141,7 @@ function softwareCard(data) {
     gcard += `
     </div>
     <a id="url" href="${data.url}" target="_blank">${data.url}</a>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return gcard
@@ -158,7 +172,7 @@ function videoCard(data) {
     vcard += `
     </div>
     <a id="url" href="${data.url}" target="_blank">${data.url}</a>
-    <label id="cpath">${data.filepath}</label>
+    <a id="cpath" href="${convertPathToBrowser(data.filepath)}" target="_blank">${data.filepath}</label>
     </div>
     `
     return vcard
